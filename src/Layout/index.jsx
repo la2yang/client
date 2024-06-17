@@ -51,6 +51,7 @@ const Basiclayout = (props) => {
         <Card
           style={{
             height: '100%',
+            backgroundColor: 'rgb(245, 245, 245)',
           }}
         >
           {props.children}

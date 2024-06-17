@@ -5,11 +5,8 @@ function Add() {
   const chartRef = useRef(null)
 
   useEffect(() => {
-    // 初始化图表实例
     let chartInstance = echarts.init(chartRef.current)
-    // 定义图表的配置项
     const option = {
-      // 图例配置
       legend: {
         data: [
           '3-11岁任务数',
@@ -21,12 +18,10 @@ function Add() {
           '完成率',
         ],
       },
-      // x轴配置
       xAxis: {
         type: 'category',
         data: ['街道1', '街道2', '街道3', '街道4', '街道5', '街道6', '街道7'],
       },
-      // y轴配置
       yAxis: [
         { type: 'value' },
         {
@@ -53,7 +48,6 @@ function Add() {
           },
         },
       ],
-      // 工具提示配置
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -66,7 +60,6 @@ function Add() {
         },
         backgroundColor: 'rgba(0,0,0,0.8)',
       },
-      // 系列配置
       series: [
         {
           name: '3-11岁任务数',
@@ -107,7 +100,6 @@ function Add() {
         },
       ],
     }
-    // 设置图表配置项
     chartInstance.setOption(option)
   }, [])
 
