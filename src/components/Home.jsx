@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react'
 import { getStuInfo } from '../Api/stuApi'
-import { Table, Button } from 'antd'
-import { useLocation } from 'react-router-dom'
+import { Table } from 'antd'
 
 const { Column } = Table
 
 function Home() {
   const [stuList, setStuList] = useState([])
-
-  const location = useLocation()
 
   useEffect(() => {
     getStuInfo().then((res) => {
@@ -22,21 +19,8 @@ function Home() {
     })
   }, [])
 
-  useEffect(() => {
-    if (location.state) {
-      console.log(location.state)
-    }
-  }, [location])
-
   return (
     <>
-      <Button
-        onclick={() => {
-          console.log(location)
-        }}
-      >
-        location
-      </Button>
       <Table dataSource={stuList}>
         <Column title="name" dataIndex="name" key="id"></Column>
         <Column title="age" dataIndex="age" key="age"></Column>

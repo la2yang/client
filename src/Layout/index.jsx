@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Layout, Menu, theme } from 'antd'
+import { Card, Layout, Menu } from 'antd'
 import { NavLink } from 'react-router-dom'
 
 const { Header, Content, Footer } = Layout
