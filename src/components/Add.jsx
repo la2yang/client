@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as echarts from 'echarts'
+import { Button } from 'antd'
 
 function Add() {
   const chartRef = useRef(null)
@@ -101,11 +102,35 @@ function Add() {
       ],
     }
     chartInstance.setOption(option)
+    window.addEventListener('resize', chartInstance.resize)
+
+    return () => {
+      window.removeEventListener('resize', chartInstance.resize)
+    }
   }, [])
+  // useEffect(() => {
+  //   // 返回一个函数，在组件卸载时清除事件监听
+  //   return () => {
+  //     const removeResizeListener = () => {
+  //       window.removeEventListener('resize', resizeListener)
+  //     }
+
+  //     return removeResizeListener
+  //   }
+  // }, [])
 
   return (
     <div style={{ textAlign: 'center' }}>
       <h2>React Echarts 折线+柱状图</h2>
+      <Button
+        onClick={() => {
+          window.removeEventListener('resize', () => {
+            console.log(2)
+          })
+        }}
+      >
+        click
+      </Button>
       <div ref={chartRef} style={{ height: '400px' }}></div>
     </div>
   )
